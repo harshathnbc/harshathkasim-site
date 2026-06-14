@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "cv": "CV",
+    "writing": "Writing",
+    "photos": "Photos",
+    "games": "Games",
+    "about": "About"
+  },
+  "home": {
+    "eyebrow": "harshathkasim.com",
+    "tagline": "Working at the intersection of HR and IT — connecting people and process with the systems that support them. This is where I keep my projects, writing, photos, and a few small games.",
+    "ctaProjects": "View projects →",
+    "ctaCv": "Read my CV",
+    "ctaContact": "Get in touch",
+    "exploreLabel": "Explore",
+    "sections": {
+      "projects": "Work across HR and IT — systems, processes, and things I've built.",
+      "cv": "Experience, skills, and a downloadable résumé.",
+      "writing": "Notes on people, technology, and where they meet.",
+      "photos": "A gallery of moments worth keeping.",
+      "games": "Small playable experiments built for fun.",
+      "about": "The longer story, and how to get in touch."
+    }
+  },
+  "pages": {
+    "projects": {
+      "eyebrow": "Work",
+      "title": "Projects",
+      "intro": "Selected work across HR and IT — process design, internal systems, and things I've built or led.",
+      "note": "Project case studies are on the way."
+    },
+    "cv": {
+      "eyebrow": "Experience",
+      "title": "Curriculum Vitae",
+      "intro": "My background across human resources and information technology.",
+      "note": "A web CV and downloadable PDF will live here."
+    },
+    "writing": {
+      "eyebrow": "Notes",
+      "title": "Writing",
+      "intro": "Thoughts on people, technology, and the space where HR and IT meet.",
+      "note": "Posts are being written. Soon."
+    },
+    "photos": {
+      "eyebrow": "Gallery",
+      "title": "Photos",
+      "intro": "A few moments worth keeping.",
+      "note": "The gallery is being curated."
+    },
+    "games": {
+      "eyebrow": "Play",
+      "title": "Games",
+      "intro": "Small, playable experiments.",
+      "note": "The first game is in the works."
+    },
+    "about": {
+      "eyebrow": "About",
+      "title": "Hello, I'm Harshath.",
+      "intro": "I work at the intersection of HR and IT — bringing together people, process, and technology.",
+      "p1": "This is a short placeholder bio. The full story — my background in human resources and information technology, what I care about, and what I'm working on now — will go here.",
+      "p2a": "The fastest way to reach me is by email at ",
+      "p2b": "."
+    }
+  }
+}

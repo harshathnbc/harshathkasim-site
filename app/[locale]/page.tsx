@@ -1,42 +1,48 @@
 import Link from "next/link";
+import { getDictionary } from "@/i18n/dictionaries";
+import { type Locale } from "@/i18n/config";
 
-const sections = [
-  { href: "/projects", label: "Projects", blurb: "Work across HR and IT — systems, processes, and things I've built." },
-  { href: "/cv", label: "CV", blurb: "Experience, skills, and a downloadable résumé." },
-  { href: "/writing", label: "Writing", blurb: "Notes on people, technology, and where they meet." },
-  { href: "/photos", label: "Photos", blurb: "A gallery of moments worth keeping." },
-  { href: "/games", label: "Games", blurb: "Small playable experiments built for fun." },
-  { href: "/about", label: "About", blurb: "The longer story, and how to get in touch." },
-];
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
+  const t = dict.home;
 
-export default function Home() {
+  const sections = [
+    { href: `/${locale}/projects`, label: dict.nav.projects, blurb: t.sections.projects },
+    { href: `/${locale}/cv`, label: dict.nav.cv, blurb: t.sections.cv },
+    { href: `/${locale}/writing`, label: dict.nav.writing, blurb: t.sections.writing },
+    { href: `/${locale}/photos`, label: dict.nav.photos, blurb: t.sections.photos },
+    { href: `/${locale}/games`, label: dict.nav.games, blurb: t.sections.games },
+    { href: `/${locale}/about`, label: dict.nav.about, blurb: t.sections.about },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-6">
       {/* Hero */}
       <section className="min-h-[72vh] flex flex-col justify-center py-20">
-        <p className="text-xs uppercase tracking-[0.32em] text-muted mb-6">
-          harshathkasim.com
+        <p className="text-xs uppercase tracking-[0.32em] text-muted mb-6" dir="ltr">
+          {t.eyebrow}
         </p>
-        <h1 className="font-serif font-normal leading-[1.02] text-text text-[clamp(3rem,10vw,6.5rem)]">
+        <h1 className="font-serif font-normal leading-[1.02] text-text text-[clamp(3rem,10vw,6.5rem)]" dir="ltr">
           Harshath <span className="italic text-accent">Kasim</span>
         </h1>
         <div className="w-12 h-px bg-line my-8" aria-hidden />
         <p className="font-mono text-text-soft leading-relaxed max-w-xl text-[0.95rem]">
-          Working at the intersection of{" "}
-          <span className="text-text">HR</span> and{" "}
-          <span className="text-text">IT</span> — connecting people and
-          process with the systems that support them. This is where I keep my
-          projects, writing, photos, and a few small games.
+          {t.tagline}
         </p>
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-          <Link href="/projects" className="link-underline text-text hover:text-accent transition-colors">
-            View projects →
+          <Link href={`/${locale}/projects`} className="link-underline text-text hover:text-accent transition-colors">
+            {t.ctaProjects}
           </Link>
-          <Link href="/cv" className="link-underline text-text-soft hover:text-text transition-colors">
-            Read my CV
+          <Link href={`/${locale}/cv`} className="link-underline text-text-soft hover:text-text transition-colors">
+            {t.ctaCv}
           </Link>
           <a href="mailto:hello@harshathkasim.com" className="link-underline text-text-soft hover:text-text transition-colors">
-            Get in touch
+            {t.ctaContact}
           </a>
         </div>
       </section>
@@ -44,7 +50,7 @@ export default function Home() {
       {/* Section index */}
       <section className="pb-12">
         <h2 className="text-xs uppercase tracking-[0.24em] text-muted mb-8">
-          Explore
+          {t.exploreLabel}
         </h2>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {sections.map((s) => (

@@ -19,6 +19,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Arabic / RTL ───────────────────────────────────────────────── */
+/* In RTL, both display and body type fall back to the Arabic face,
+   since Instrument Serif and IBM Plex Mono have no Arabic glyphs. */
+html[dir="rtl"] {
+  --font-serif: var(--font-ibm-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+  --font-mono: var(--font-ibm-plex-arabic), "Segoe UI", Tahoma, sans-serif;
+}
+
+/* Letter-spacing breaks Arabic letter joining — neutralise it in RTL,
+   except for elements explicitly forced back to LTR (e.g. the logo,
+   email, domain eyebrow). */
+html[dir="rtl"] *:not([dir="ltr"]):not([dir="ltr"] *) {
+  letter-spacing: normal !important;
+}
+
 body {
   background-color: var(--color-bg);
   background-image: radial-gradient(
