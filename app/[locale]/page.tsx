@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
+import { getAllProjects } from "@/lib/projects";
 
 export default async function Home({
   params,
@@ -10,6 +11,8 @@ export default async function Home({
   const { locale } = await params;
   const dict = await getDictionary(locale);
   const t = dict.home;
+  const tp = dict.pages.projects;
+  const featured = getAllProjects(locale).slice(0, 3);
 
   const sections = [
     { href: `/${locale}/projects`, label: dict.nav.projects, blurb: t.sections.projects },
@@ -47,8 +50,51 @@ export default async function Home({
         </div>
       </section>
 
+      {/* Featured work */}
+      <section className="pb-4">
+        <div className="flex items-baseline justify-between mb-8">
+          <h2 className="text-xs uppercase tracking-[0.24em] text-muted">
+            {t.featuredLabel}
+          </h2>
+          <Link
+            href={`/${locale}/projects`}
+            className="link-underline text-sm text-text-soft hover:text-text transition-colors"
+          >
+            {t.viewAllProjects}
+          </Link>
+        </div>
+        <ul className="grid sm:grid-cols-3 gap-4">
+          {featured.map((p) => (
+            <li key={p.slug}>
+              <Link
+                href={`/${locale}/projects/${p.slug}`}
+                className="group flex h-full flex-col rounded-lg border border-line/60 bg-surface/40 p-5 transition-colors hover:border-accent/50 hover:bg-surface/70"
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-serif text-xl text-text group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
+                  <span
+                    className={`shrink-0 mt-1 rounded-full px-2 py-0.5 text-[0.6rem] uppercase tracking-wider ${
+                      p.status === "live"
+                        ? "bg-accent/15 text-accent"
+                        : "bg-muted/15 text-muted"
+                    }`}
+                  >
+                    {p.status === "live" ? tp.statusLive : tp.statusDevelopment}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm text-text-soft leading-relaxed">
+                  {p.summary}
+                </p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Section index */}
-      <section className="pb-12">
+      <section className="pt-16 pb-12">
         <h2 className="text-xs uppercase tracking-[0.24em] text-muted mb-8">
           {t.exploreLabel}
         </h2>
