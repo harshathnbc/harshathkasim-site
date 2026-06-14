@@ -55,13 +55,26 @@
       "eyebrow": "Gallery",
       "title": "Photos",
       "intro": "A few moments worth keeping.",
-      "note": "The gallery is being curated."
+      "note": "The gallery is being curated.",
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
     },
     "games": {
       "eyebrow": "Play",
       "title": "Games",
       "intro": "Small, playable experiments.",
-      "note": "The first game is in the works."
+      "note": "The first game is in the works.",
+      "back": "← All games",
+      "play": "Play →",
+      "ttt": {
+        "yourTurn": "Your turn — you're X",
+        "thinking": "Thinking…",
+        "youWin": "You win! 🎉",
+        "aiWins": "The AI wins",
+        "draw": "It's a draw",
+        "restart": "Restart"
+      }
     },
     "about": {
       "eyebrow": "About",

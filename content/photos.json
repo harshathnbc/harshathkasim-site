@@ -1,0 +1,17 @@
+[
+  {
+    "src": "/photos/placeholder-1.svg",
+    "alt": { "en": "Placeholder image one", "ar": "صورة مؤقتة واحد" },
+    "caption": { "en": "Replace with a real photo", "ar": "استبدلها بصورة حقيقية" }
+  },
+  {
+    "src": "/photos/placeholder-2.svg",
+    "alt": { "en": "Placeholder image two", "ar": "صورة مؤقتة اثنان" },
+    "caption": { "en": "Add a caption here", "ar": "أضف تعليقًا هنا" }
+  },
+  {
+    "src": "/photos/placeholder-3.svg",
+    "alt": { "en": "Placeholder image three", "ar": "صورة مؤقتة ثلاثة" },
+    "caption": { "en": "Moments worth keeping", "ar": "لحظات تستحق الحفظ" }
+  }
+]

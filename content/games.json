@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "tic-tac-toe",
+    "title": { "en": "Tic-Tac-Toe", "ar": "إكس-أو" },
+    "description": {
+      "en": "The classic game against an AI that never loses. Can you force a draw?",
+      "ar": "اللعبة الكلاسيكية ضد ذكاء اصطناعي لا يخسر أبدًا. هل تستطيع فرض التعادل؟"
+    },
+    "tags": ["Classic"]
+  }
+]
