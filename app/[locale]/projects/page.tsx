@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import ComingSoon from "@/components/ComingSoon";
+import ProjectsGrid from "@/components/ProjectsGrid";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
+import { getAllProjects } from "@/lib/projects";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -15,10 +16,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProjectsPage({ params }: Props) {
   const { locale } = await params;
   const t = (await getDictionary(locale)).pages.projects;
+  const projects = getAllProjects(locale);
+
   return (
     <div className="mx-auto max-w-5xl px-6">
       <PageHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
-      <ComingSoon note={t.note} />
+      <ProjectsGrid
+        locale={locale}
+        projects={projects}
+        labels={{
+          all: t.all,
+          statusLive: t.statusLive,
+          statusDevelopment: t.statusDevelopment,
+        }}
+      />
     </div>
   );
 }

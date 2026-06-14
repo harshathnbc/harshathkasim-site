@@ -28,7 +28,13 @@
       "eyebrow": "Work",
       "title": "Projects",
       "intro": "Selected work across HR and IT — process design, internal systems, and things I've built or led.",
-      "note": "Project case studies are on the way."
+      "note": "Project case studies are on the way.",
+      "all": "All",
+      "statusLive": "Live",
+      "statusDevelopment": "In development",
+      "visit": "Visit site →",
+      "roleLabel": "Role",
+      "back": "← All projects"
     },
     "cv": {
       "eyebrow": "Experience",

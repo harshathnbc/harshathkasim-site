@@ -75,6 +75,60 @@ body {
   *, *::before, *::after { animation: none !important; }
 }
 
+/* ── MDX prose (project case studies, writing) ──────────────────── */
+.mdx {
+  color: var(--color-text-soft);
+  line-height: 1.85;
+}
+.mdx > * + * {
+  margin-top: 1.15rem;
+}
+.mdx p {
+  font-size: 0.95rem;
+}
+.mdx h2 {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  font-size: 1.6rem;
+  margin-top: 2.2rem;
+  line-height: 1.2;
+}
+.mdx h3 {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  margin-top: 1.6rem;
+}
+.mdx a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mdx ul {
+  list-style: disc;
+  padding-inline-start: 1.3rem;
+}
+.mdx ol {
+  list-style: decimal;
+  padding-inline-start: 1.3rem;
+}
+.mdx li {
+  margin-top: 0.4rem;
+}
+.mdx li::marker {
+  color: var(--color-muted);
+}
+.mdx strong {
+  color: var(--color-text);
+  font-weight: 500;
+}
+.mdx blockquote {
+  border-inline-start: 2px solid var(--color-accent);
+  padding-inline-start: 1rem;
+  color: var(--color-text);
+  font-style: italic;
+}
+
 /* ── Print: produce a clean white CV (used by the CV "Save as PDF") ─ */
 @media print {
   .no-print { display: none !important; }
