@@ -1,0 +1,88 @@
+{
+  "headline": "HR & IT Manager",
+  "tagline": "Over 18 years across information technology and people operations.",
+  "summary": "HR and IT Manager with over 18 years of experience spanning information technology and people operations. I began my career in IT engineering — building and maintaining networks, systems, and security infrastructure — and have grown into leading teams and managing both the technology and human sides of an organisation. I focus on keeping operations dependable: secure, reliable IT systems on one hand, and well-coordinated, well-supported people on the other.",
+  "contact": {
+    "email": "hello@harshathkasim.com",
+    "phone": "+966 58 375 5585",
+    "location": "Al Khobar, Eastern Province, Saudi Arabia",
+    "nationality": "Indian",
+    "linkedin": "https://www.linkedin.com/in/harshath-kasim-7689b7a3/",
+    "linkedinLabel": "linkedin.com/in/harshath-kasim"
+  },
+  "experience": [
+    {
+      "role": "HR & IT Manager",
+      "org": "National Basics Company Ltd.",
+      "location": "Al Khobar, Saudi Arabia",
+      "period": "June 2015 – Present",
+      "bullets": [
+        "Lead the company's IT infrastructure — operating systems, servers, email, security tools, and end-user devices — ensuring secure, reliable day-to-day operations.",
+        "Manage and mentor the IT team, coordinating workloads, priorities, and professional development.",
+        "Oversee HR functions including team management, recruitment support, and staff coordination.",
+        "Develop network troubleshooting strategies that reduce downtime and lower maintenance costs.",
+        "Research and evaluate emerging technologies, hardware, and software against business needs.",
+        "Maintain hardware and software inventory and lead procurement and vendor negotiation."
+      ]
+    },
+    {
+      "role": "IT Engineer",
+      "org": "Chelsea Arabia Co. for Contracting",
+      "location": "Al Khobar, Saudi Arabia",
+      "period": "February 2013 – May 2015",
+      "bullets": [
+        "Installed and maintained software, networking systems, and high-level security infrastructure.",
+        "Troubleshot and resolved network, hardware, and software issues across the organisation.",
+        "Configured and supported computer hardware and end-user systems."
+      ]
+    },
+    {
+      "role": "IT Engineer",
+      "org": "Ideal Industries",
+      "location": "Kerala, India",
+      "period": "November 2006 – January 2013",
+      "bullets": [
+        "Managed installation and configuration of computer hardware, software, and networks.",
+        "Provided IT support and security setup across departments.",
+        "Diagnosed and resolved hardware, software, and networking issues."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Diploma in Computer Engineering",
+      "institution": "Kongu Polytechnic College, Tamil Nadu, India",
+      "period": "2003 – 2006"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Leadership & HR",
+      "items": ["Team Management", "Recruitment Support", "Negotiation", "Process Improvement", "Vendor Management"]
+    },
+    {
+      "category": "IT Infrastructure",
+      "items": ["Network Administration", "Systems Administration", "Server & Email Management", "IT Security"]
+    },
+    {
+      "category": "Hardware & Software",
+      "items": ["Hardware Configuration", "Software Installation", "Troubleshooting", "Inventory Management"]
+    }
+  ],
+  "languages": [
+    { "name": "Malayalam", "level": "Native" },
+    { "name": "English", "level": "Professional" },
+    { "name": "Tamil", "level": "Fluent" },
+    { "name": "Hindi", "level": "Fluent" },
+    { "name": "Arabic", "level": "Working proficiency" }
+  ],
+  "ui": {
+    "summary": "Summary",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "languages": "Languages",
+    "contact": "Contact",
+    "print": "Print / Save as PDF"
+  }
+}

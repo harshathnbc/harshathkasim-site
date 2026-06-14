@@ -19,6 +19,7 @@ export default async function AboutPage({ params }: Props) {
       <PageHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
       <div className="max-w-2xl space-y-5 text-text-soft leading-relaxed text-[0.95rem]">
         <p>{t.p1}</p>
+        <p>{t.p2}</p>
         <p>
           {t.p2a}
           <a
