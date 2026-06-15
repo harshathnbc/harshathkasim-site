@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Photo } from "@/lib/photos";
 
 type Labels = { close: string; prev: string; next: string };
@@ -13,8 +13,24 @@ export default function PhotoGallery({
   labels: Labels;
 }) {
   const [open, setOpen] = useState<number | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
+
+  const openAt = useCallback((i: number) => {
+    lastFocused.current = document.activeElement as HTMLElement | null;
+    setOpen(i);
+  }, []);
 
   const close = useCallback(() => setOpen(null), []);
+
+  // Move focus into the dialog when it opens; restore it when it closes.
+  useEffect(() => {
+    if (open !== null) {
+      closeRef.current?.focus();
+    } else {
+      lastFocused.current?.focus?.();
+    }
+  }, [open]);
   const show = useCallback(
     (dir: number) =>
       setOpen((i) => (i === null ? null : (i + dir + photos.length) % photos.length)),
@@ -43,7 +59,7 @@ export default function PhotoGallery({
           <button
             key={photo.src}
             type="button"
-            onClick={() => setOpen(i)}
+            onClick={() => openAt(i)}
             className="block w-full break-inside-avoid overflow-hidden rounded-lg border border-line/50 group"
             aria-label={photo.alt}
           >
@@ -64,8 +80,10 @@ export default function PhotoGallery({
           onClick={close}
           role="dialog"
           aria-modal="true"
+          aria-label={photos[open].alt}
         >
           <button
+            ref={closeRef}
             type="button"
             onClick={close}
             aria-label={labels.close}
