@@ -74,6 +74,24 @@
         "aiWins": "The AI wins",
         "draw": "It's a draw",
         "restart": "Restart"
+      },
+      "memory": {
+        "moves": "moves",
+        "youWin": "Solved! 🎉",
+        "restart": "Restart"
+      },
+      "g2048": {
+        "score": "Score",
+        "youWin": "You reached 2048! 🎉",
+        "gameOver": "Game over",
+        "restart": "Restart",
+        "hint": "Arrow keys or swipe to move"
+      },
+      "snake": {
+        "score": "Score",
+        "gameOver": "Game over",
+        "restart": "Restart",
+        "hint": "Arrow keys or swipe to play"
       }
     },
     "about": {

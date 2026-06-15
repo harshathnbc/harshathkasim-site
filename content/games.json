@@ -7,5 +7,32 @@
       "ar": "اللعبة الكلاسيكية ضد ذكاء اصطناعي لا يخسر أبدًا. هل تستطيع فرض التعادل؟"
     },
     "tags": ["Classic"]
+  },
+  {
+    "slug": "memory",
+    "title": { "en": "Memory", "ar": "الذاكرة" },
+    "description": {
+      "en": "Flip the cards and match every pair in as few moves as you can.",
+      "ar": "اقلب البطاقات وطابق كل زوج بأقل عدد ممكن من الحركات."
+    },
+    "tags": ["Puzzle"]
+  },
+  {
+    "slug": "2048",
+    "title": { "en": "2048", "ar": "2048" },
+    "description": {
+      "en": "Slide the tiles, merge matching numbers, and try to reach 2048.",
+      "ar": "حرّك المربعات وادمج الأرقام المتطابقة وحاول الوصول إلى 2048."
+    },
+    "tags": ["Puzzle"]
+  },
+  {
+    "slug": "snake",
+    "title": { "en": "Snake", "ar": "الثعبان" },
+    "description": {
+      "en": "Guide the snake, eat the dots, and grow without hitting the walls or yourself.",
+      "ar": "وجّه الثعبان والتهم النقاط وانمُ دون الاصطدام بالجدران أو بنفسك."
+    },
+    "tags": ["Arcade"]
   }
 ]

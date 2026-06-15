@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
 import TicTacToe from "@/components/games/TicTacToe";
+import Memory from "@/components/games/Memory";
+import Game2048 from "@/components/games/Game2048";
+import Snake from "@/components/games/Snake";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getGame, getGameSlugs } from "@/lib/games";
@@ -40,6 +43,9 @@ export default async function GamePage({ params }: Props) {
 
       <div className="mt-6">
         {slug === "tic-tac-toe" && <TicTacToe labels={t.ttt} />}
+        {slug === "memory" && <Memory labels={t.memory} />}
+        {slug === "2048" && <Game2048 labels={t.g2048} />}
+        {slug === "snake" && <Snake labels={t.snake} />}
       </div>
     </div>
   );
