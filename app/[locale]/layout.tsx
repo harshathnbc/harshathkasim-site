@@ -59,8 +59,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={localeDir[locale as Locale]} className={fontVars}>
       <body className="min-h-screen flex flex-col">
+        <a href="#main-content" className="skip-link">
+          {dict.nav.skip}
+        </a>
         <Nav locale={locale as Locale} nav={dict.nav} />
-        <main className="flex-1 w-full">{children}</main>
+        <main id="main-content" className="flex-1 w-full">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
