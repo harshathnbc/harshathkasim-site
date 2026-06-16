@@ -97,6 +97,127 @@ body {
   *, *::before, *::after { animation: none !important; }
 }
 
+/* ── Glassmorphism system ───────────────────────────────────────── */
+
+/* Living gradient backdrop — soft, slow, brand-tinted depth behind content. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25% -15% auto -15%;
+  height: 85vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 45% at 18% 18%, rgba(200, 165, 107, 0.12), transparent 70%),
+    radial-gradient(42% 48% at 82% 8%, rgba(96, 132, 170, 0.10), transparent 72%),
+    radial-gradient(50% 40% at 55% 0%, rgba(120, 110, 150, 0.07), transparent 75%);
+  filter: blur(40px);
+  animation: aurora 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.1); }
+}
+
+/* Frosted glass card — gloss highlight on top, depth shadow, fluid hover. */
+.glass-card {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.018)
+  );
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  border: 1px solid rgba(236, 234, 211, 0.1);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 10px 34px -16px rgba(0, 0, 0, 0.65);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    background 0.45s ease;
+}
+/* Top sheen */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 38%);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -1;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200, 165, 107, 0.45);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.025)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 18px 48px -16px rgba(0, 0, 0, 0.72),
+    0 0 34px -12px rgba(200, 165, 107, 0.28);
+}
+
+/* Frosted nav bar */
+.glass-nav {
+  background: linear-gradient(180deg, rgba(20, 22, 28, 0.72), rgba(20, 22, 28, 0.52));
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(236, 234, 211, 0.08);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* Glossy glass button */
+.btn-glass {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(236, 234, 211, 0.13);
+  border-radius: 11px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    0 6px 18px -10px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+.btn-glass:hover {
+  transform: translateY(-1px);
+  border-color: rgba(200, 165, 107, 0.5);
+  color: var(--color-text);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    0 0 26px -8px rgba(200, 165, 107, 0.35);
+}
+
+/* Glass frame for imagery */
+.glass-frame {
+  border: 1px solid rgba(236, 234, 211, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 34px -18px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
+
 /* ── MDX prose (project case studies, writing) ──────────────────── */
 .mdx {
   color: var(--color-text-soft);

@@ -31,7 +31,7 @@ export default async function GamesPage({ params }: Props) {
             <li key={g.slug}>
               <Link
                 href={`/${locale}/games/${g.slug}`}
-                className="group flex h-full flex-col rounded-lg border border-line/60 bg-surface/40 p-5 transition-colors hover:border-accent/50 hover:bg-surface/70"
+                className="group glass-card flex h-full flex-col p-5"
               >
                 <h2 className="font-serif text-2xl text-text group-hover:text-accent transition-colors">
                   {g.title}

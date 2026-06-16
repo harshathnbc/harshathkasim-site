@@ -19,7 +19,7 @@ export default function Nav({
   ];
 
   return (
-    <header className="w-full border-b border-line/60 sticky top-0 z-50 backdrop-blur-md bg-bg/70">
+    <header className="w-full sticky top-0 z-50 glass-nav">
       <nav className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between gap-4">
         <Link
           href={`/${locale}`}

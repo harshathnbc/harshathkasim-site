@@ -61,7 +61,7 @@ export default function PhotoGallery({
             key={photo.src}
             type="button"
             onClick={() => openAt(i)}
-            className="block w-full break-inside-avoid overflow-hidden rounded-lg border border-line/50 group"
+            className="block w-full break-inside-avoid overflow-hidden rounded-xl glass-frame group"
             aria-label={photo.alt}
           >
             <Image

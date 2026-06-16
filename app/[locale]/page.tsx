@@ -90,7 +90,7 @@ export default async function Home({
             <li key={p.slug}>
               <Link
                 href={`/${locale}/projects/${p.slug}`}
-                className="group flex h-full flex-col rounded-lg border border-line/60 bg-surface/40 p-5 transition-colors hover:border-accent/50 hover:bg-surface/70"
+                className="group glass-card flex h-full flex-col p-5"
               >
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-serif text-xl text-text group-hover:text-accent transition-colors">
@@ -125,7 +125,7 @@ export default async function Home({
             <li key={s.href}>
               <Link
                 href={s.href}
-                className="group block h-full rounded-lg border border-line/60 bg-surface/40 p-5 transition-colors hover:border-accent/50 hover:bg-surface/70"
+                className="group glass-card block h-full p-5"
               >
                 <span className="font-serif text-2xl text-text group-hover:text-accent transition-colors">
                   {s.label}
