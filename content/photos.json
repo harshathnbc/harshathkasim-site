@@ -1,13 +1,128 @@
 [
   {
     "src": "/photos/al-khobar-night.webp",
+    "category": "Architecture",
     "alt": {
       "en": "Aerial night view of the Al Khobar corniche and lake, Saudi Arabia",
       "ar": "منظر جوي ليلي لكورنيش الخبر وبحيرته، المملكة العربية السعودية"
     },
-    "caption": {
-      "en": "Al Khobar corniche at night",
-      "ar": "كورنيش الخبر ليلًا"
-    }
+    "caption": { "en": "Al Khobar corniche at night", "ar": "كورنيش الخبر ليلًا" }
+  },
+  {
+    "src": "/photos/img-20260508-010052-880.webp",
+    "category": "Architecture",
+    "alt": {
+      "en": "The black-and-white striped arches inside the Prophet's Mosque, Madinah",
+      "ar": "الأقواس المخططة بالأبيض والأسود داخل المسجد النبوي، المدينة المنورة"
+    },
+    "caption": { "en": "Arches of Al-Masjid an-Nabawi, Madinah", "ar": "أقواس المسجد النبوي، المدينة المنورة" }
+  },
+  {
+    "src": "/photos/pxl-20260322-160039746.webp",
+    "category": "Street",
+    "alt": {
+      "en": "Colourful illuminated lanterns at a night market",
+      "ar": "فوانيس مضيئة ملوّنة في سوق ليلي"
+    },
+    "caption": { "en": "Lanterns at the night market", "ar": "فوانيس في السوق الليلي" }
+  },
+  {
+    "src": "/photos/pxl-20211224-132009364.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "Weathered limestone rock formations at Al-Qarah Mountain, Al-Ahsa",
+      "ar": "تكوينات صخرية جيرية في جبل القارة، الأحساء"
+    },
+    "caption": { "en": "Rock formations, Al-Qarah Mountain", "ar": "تكوينات جبل القارة الصخرية" }
+  },
+  {
+    "src": "/photos/img-20260506-205945-149.webp",
+    "category": "Macro",
+    "alt": {
+      "en": "Decorative LED bulb with a glowing DNA double-helix filament",
+      "ar": "مصباح LED مزخرف بخيط مضيء على شكل حلزون الحمض النووي المزدوج"
+    },
+    "caption": { "en": "DNA-helix filament bulb", "ar": "مصباح بخيط حلزوني" }
+  },
+  {
+    "src": "/photos/img-20260506-231314-544.webp",
+    "category": "Macro",
+    "alt": {
+      "en": "Macro detail of the centre of a purple flower",
+      "ar": "تفاصيل دقيقة لقلب زهرة بنفسجية"
+    },
+    "caption": { "en": "Inside a bloom", "ar": "داخل زهرة" }
+  },
+  {
+    "src": "/photos/pxl-20220730-110223952.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "A wide waterfall in full flow during the monsoon, Kerala, India",
+      "ar": "شلال عريض يتدفّق بغزارة في موسم الأمطار، كيرالا، الهند"
+    },
+    "caption": { "en": "Monsoon waterfall, Kerala", "ar": "شلال موسمي، كيرالا" }
+  },
+  {
+    "src": "/photos/pxl-20250823-115933884-2.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "A rocky peak rising above forested hills under a cloudy sky",
+      "ar": "قمة صخرية ترتفع فوق تلال مكسوّة بالأشجار تحت سماء غائمة"
+    },
+    "caption": { "en": "Cliff-edge viewpoint", "ar": "إطلالة من حافة الجبل" }
+  },
+  {
+    "src": "/photos/img-20260517-123219-751.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "A rocky cliff overlooking a patchwork of green farmland",
+      "ar": "منحدر صخري يطل على لوحة من الحقول الزراعية الخضراء"
+    },
+    "caption": { "en": "Cliff over the plains", "ar": "منحدر يطل على السهول" }
+  },
+  {
+    "src": "/photos/pxl-20250823-044008576.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "Green hills overlooking a reservoir with a ridge-top building",
+      "ar": "تلال خضراء تطل على بحيرة مع مبنى على قمة التل"
+    },
+    "caption": { "en": "Hills above the reservoir", "ar": "تلال تطل على البحيرة" }
+  },
+  {
+    "src": "/photos/pxl-20240808-020825250.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "Clouds rolling over green hills and tea estates",
+      "ar": "غيوم تتدحرج فوق تلال خضراء ومزارع شاي"
+    },
+    "caption": { "en": "Clouds over the hills", "ar": "غيوم فوق التلال" }
+  },
+  {
+    "src": "/photos/pxl-20211126-044151048.webp",
+    "category": "Landscape",
+    "alt": {
+      "en": "Aerial view of rugged mountain ranges from a plane window",
+      "ar": "منظر جوي لسلاسل جبلية وعرة من نافذة الطائرة"
+    },
+    "caption": { "en": "Mountains from above", "ar": "جبال من الأعلى" }
+  },
+  {
+    "src": "/photos/img-20260506-212258-717.webp",
+    "category": "Street",
+    "alt": {
+      "en": "Rows of colourful hand-painted wooden souvenirs",
+      "ar": "صفوف من التحف الخشبية الملوّنة المرسومة يدويًا"
+    },
+    "caption": { "en": "Hand-painted souvenirs", "ar": "تحف مرسومة يدويًا" }
+  },
+  {
+    "src": "/photos/img-20260508-012033-701.webp",
+    "category": "Street",
+    "alt": {
+      "en": "Charred grilled corn on the cob on skewers",
+      "ar": "ذرة مشوية على أسياخ"
+    },
+    "caption": { "en": "Grilled corn", "ar": "ذرة مشوية" }
   }
 ]
