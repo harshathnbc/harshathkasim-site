@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import type { Photo } from "@/lib/photos";
 
 type Labels = { close: string; prev: string; next: string };
@@ -63,11 +64,13 @@ export default function PhotoGallery({
             className="block w-full break-inside-avoid overflow-hidden rounded-lg border border-line/50 group"
             aria-label={photo.alt}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={photo.src}
               alt={photo.alt}
-              loading="lazy"
+              width={photo.width}
+              height={photo.height}
+              sizes="(min-width: 768px) 33vw, 50vw"
+              priority={i === 0}
               className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.03]"
             />
           </button>

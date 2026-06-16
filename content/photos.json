@@ -1,6 +1,8 @@
 [
   {
     "src": "/photos/al-khobar-night.webp",
+    "width": 1506,
+    "height": 2000,
     "category": "Architecture",
     "alt": {
       "en": "Aerial night view of the Al Khobar corniche and lake, Saudi Arabia",
@@ -10,6 +12,8 @@
   },
   {
     "src": "/photos/img-20260508-010052-880.webp",
+    "width": 2000,
+    "height": 2000,
     "category": "Architecture",
     "alt": {
       "en": "The black-and-white striped arches inside the Prophet's Mosque, Madinah",
@@ -19,6 +23,8 @@
   },
   {
     "src": "/photos/pxl-20260322-160039746.webp",
+    "width": 1506,
+    "height": 2000,
     "category": "Street",
     "alt": {
       "en": "Colourful illuminated lanterns at a night market",
@@ -28,6 +34,8 @@
   },
   {
     "src": "/photos/pxl-20211224-132009364.webp",
+    "width": 2000,
+    "height": 1500,
     "category": "Landscape",
     "alt": {
       "en": "Weathered limestone rock formations at Al-Qarah Mountain, Al-Ahsa",
@@ -37,6 +45,8 @@
   },
   {
     "src": "/photos/img-20260506-205945-149.webp",
+    "width": 2000,
+    "height": 2000,
     "category": "Macro",
     "alt": {
       "en": "Decorative LED bulb with a glowing DNA double-helix filament",
@@ -46,6 +56,8 @@
   },
   {
     "src": "/photos/img-20260506-231314-544.webp",
+    "width": 1843,
+    "height": 1843,
     "category": "Macro",
     "alt": {
       "en": "Macro detail of the centre of a purple flower",
@@ -55,6 +67,8 @@
   },
   {
     "src": "/photos/pxl-20220730-110223952.webp",
+    "width": 2000,
+    "height": 1506,
     "category": "Landscape",
     "alt": {
       "en": "A wide waterfall in full flow during the monsoon, Kerala, India",
@@ -64,6 +78,8 @@
   },
   {
     "src": "/photos/pxl-20250823-115933884-2.webp",
+    "width": 2000,
+    "height": 1506,
     "category": "Landscape",
     "alt": {
       "en": "A rocky peak rising above forested hills under a cloudy sky",
@@ -73,6 +89,8 @@
   },
   {
     "src": "/photos/img-20260517-123219-751.webp",
+    "width": 1536,
+    "height": 1536,
     "category": "Landscape",
     "alt": {
       "en": "A rocky cliff overlooking a patchwork of green farmland",
@@ -82,6 +100,8 @@
   },
   {
     "src": "/photos/pxl-20250823-044008576.webp",
+    "width": 2000,
+    "height": 1506,
     "category": "Landscape",
     "alt": {
       "en": "Green hills overlooking a reservoir with a ridge-top building",
@@ -91,6 +111,8 @@
   },
   {
     "src": "/photos/pxl-20240808-020825250.webp",
+    "width": 1506,
+    "height": 2000,
     "category": "Landscape",
     "alt": {
       "en": "Clouds rolling over green hills and tea estates",
@@ -100,6 +122,8 @@
   },
   {
     "src": "/photos/pxl-20211126-044151048.webp",
+    "width": 2000,
+    "height": 1500,
     "category": "Landscape",
     "alt": {
       "en": "Aerial view of rugged mountain ranges from a plane window",
@@ -109,6 +133,8 @@
   },
   {
     "src": "/photos/img-20260506-212258-717.webp",
+    "width": 1843,
+    "height": 1843,
     "category": "Street",
     "alt": {
       "en": "Rows of colourful hand-painted wooden souvenirs",
@@ -118,6 +144,8 @@
   },
   {
     "src": "/photos/img-20260508-012033-701.webp",
+    "width": 2000,
+    "height": 2000,
     "category": "Street",
     "alt": {
       "en": "Charred grilled corn on the cob on skewers",
