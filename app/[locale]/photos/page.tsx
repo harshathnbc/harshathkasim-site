@@ -5,13 +5,14 @@ import PhotoGallery from "@/components/PhotoGallery";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
 import { getPhotos } from "@/lib/photos";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale);
-  return { title: dict.pages.photos.title };
+  return { title: dict.pages.photos.title, alternates: alternates(locale, "/photos") };
 }
 
 export default async function PhotosPage({ params }: Props) {

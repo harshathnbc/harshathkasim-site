@@ -4,13 +4,14 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
 import { getAllProjects } from "@/lib/projects";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale);
-  return { title: dict.pages.projects.title };
+  return { title: dict.pages.projects.title, alternates: alternates(locale, "/projects") };
 }
 
 export default async function ProjectsPage({ params }: Props) {

@@ -6,6 +6,8 @@ import PageHeader from "@/components/PageHeader";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getProject, getProjectSlugs } from "@/lib/projects";
+import JsonLd from "@/components/JsonLd";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -18,7 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   try {
     const { meta } = getProject(slug, locale);
-    return { title: meta.title, description: meta.summary };
+    return {
+      title: meta.title,
+      description: meta.summary,
+      alternates: alternates(locale, `/projects/${slug}`),
+    };
   } catch {
     return {};
   }
@@ -38,8 +44,20 @@ export default async function ProjectPage({ params }: Props) {
   const { meta, content } = project;
   const { content: body } = await compileMDX({ source: content });
 
+  const projectLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: meta.title,
+    description: meta.summary,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    ...(meta.url ? { url: meta.url } : {}),
+    author: { "@type": "Person", name: "Harshath Kasim" },
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-6">
+      <JsonLd data={projectLd} />
       <Link
         href={`/${locale}/projects`}
         className="no-print inline-block mt-12 text-sm text-muted hover:text-text transition-colors"

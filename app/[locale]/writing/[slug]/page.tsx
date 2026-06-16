@@ -6,6 +6,8 @@ import PageHeader from "@/components/PageHeader";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getPost, getPostSlugs, formatDate } from "@/lib/writing";
+import JsonLd from "@/components/JsonLd";
+import { alternates, SITE_URL } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -18,7 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   try {
     const { meta } = getPost(slug, locale);
-    return { title: meta.title, description: meta.excerpt };
+    return {
+      title: meta.title,
+      description: meta.excerpt,
+      alternates: alternates(locale, `/writing/${slug}`),
+    };
   } catch {
     return {};
   }
@@ -38,8 +44,20 @@ export default async function PostPage({ params }: Props) {
   const { meta, content } = post;
   const { content: body } = await compileMDX({ source: content });
 
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: meta.title,
+    description: meta.excerpt,
+    datePublished: meta.date,
+    inLanguage: locale,
+    url: `${SITE_URL}/${locale}/writing/${slug}`,
+    author: { "@type": "Person", name: "Harshath Kasim", url: SITE_URL },
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-6">
+      <JsonLd data={articleLd} />
       <Link
         href={`/${locale}/writing`}
         className="inline-block mt-12 text-sm text-muted hover:text-text transition-colors"

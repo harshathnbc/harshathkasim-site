@@ -9,6 +9,7 @@ import Snake from "@/components/games/Snake";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getGame, getGameSlugs } from "@/lib/games";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -20,7 +21,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const game = getGame(slug, locale);
-  return game ? { title: game.title, description: game.description } : {};
+  return game
+    ? {
+        title: game.title,
+        description: game.description,
+        alternates: alternates(locale, `/games/${slug}`),
+      }
+    : {};
 }
 
 export default async function GamePage({ params }: Props) {

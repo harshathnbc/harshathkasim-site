@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
 import { getAllProjects } from "@/lib/projects";
+import JsonLd from "@/components/JsonLd";
+import { alternates, SITE_URL } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: alternates(locale, "") };
+}
 
 export default async function Home({
   params,
@@ -14,6 +26,19 @@ export default async function Home({
   const tp = dict.pages.projects;
   const featured = getAllProjects(locale).slice(0, 3);
 
+  const personLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Harshath Kasim",
+    url: SITE_URL,
+    jobTitle:
+      locale === "ar"
+        ? "مدير الموارد البشرية وتكنولوجيا المعلومات"
+        : "HR & IT Manager",
+    email: "mailto:hello@harshathkasim.com",
+    sameAs: ["https://www.linkedin.com/in/harshath-kasim-7689b7a3/"],
+  };
+
   const sections = [
     { href: `/${locale}/projects`, label: dict.nav.projects, blurb: t.sections.projects },
     { href: `/${locale}/cv`, label: dict.nav.cv, blurb: t.sections.cv },
@@ -25,6 +50,7 @@ export default async function Home({
 
   return (
     <div className="mx-auto max-w-5xl px-6">
+      <JsonLd data={personLd} />
       {/* Hero */}
       <section className="min-h-[72vh] flex flex-col justify-center py-20">
         <p className="text-xs uppercase tracking-[0.32em] text-muted mb-6" dir="ltr">

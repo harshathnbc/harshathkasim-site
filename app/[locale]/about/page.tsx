@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale);
-  return { title: dict.pages.about.title };
+  return { title: dict.pages.about.title, alternates: alternates(locale, "/about") };
 }
 
 export default async function AboutPage({ params }: Props) {

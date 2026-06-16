@@ -5,13 +5,14 @@ import ComingSoon from "@/components/ComingSoon";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
 import { getAllPosts, formatDate } from "@/lib/writing";
+import { alternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale);
-  return { title: dict.pages.writing.title };
+  return { title: dict.pages.writing.title, alternates: alternates(locale, "/writing") };
 }
 
 export default async function WritingPage({ params }: Props) {

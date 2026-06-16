@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import PrintButton from "@/components/PrintButton";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
+import { alternates } from "@/lib/seo";
 import cvEn from "@/content/cv.en.json";
 import cvAr from "@/content/cv.ar.json";
 
@@ -13,7 +14,7 @@ type Props = { params: Promise<{ locale: Locale }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale);
-  return { title: dict.pages.cv.title };
+  return { title: dict.pages.cv.title, alternates: alternates(locale, "/cv") };
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
