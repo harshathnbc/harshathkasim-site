@@ -41,7 +41,6 @@ export default async function Home({
 
   const sections = [
     { href: `/${locale}/projects`, label: dict.nav.projects, blurb: t.sections.projects },
-    { href: `/${locale}/cv`, label: dict.nav.cv, blurb: t.sections.cv },
     { href: `/${locale}/writing`, label: dict.nav.writing, blurb: t.sections.writing },
     { href: `/${locale}/photos`, label: dict.nav.photos, blurb: t.sections.photos },
     { href: `/${locale}/games`, label: dict.nav.games, blurb: t.sections.games },
@@ -66,9 +65,6 @@ export default async function Home({
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           <Link href={`/${locale}/projects`} className="link-underline text-text hover:text-accent transition-colors">
             {t.ctaProjects}
-          </Link>
-          <Link href={`/${locale}/cv`} className="link-underline text-text-soft hover:text-text transition-colors">
-            {t.ctaCv}
           </Link>
           <a href="mailto:hello@harshathkasim.com" className="link-underline text-text-soft hover:text-text transition-colors">
             {t.ctaContact}

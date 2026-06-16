@@ -12,7 +12,6 @@ export default function Nav({
 }) {
   const links = [
     { href: `/${locale}/projects`, label: nav.projects },
-    { href: `/${locale}/cv`, label: nav.cv },
     { href: `/${locale}/writing`, label: nav.writing },
     { href: `/${locale}/photos`, label: nav.photos },
     { href: `/${locale}/games`, label: nav.games },

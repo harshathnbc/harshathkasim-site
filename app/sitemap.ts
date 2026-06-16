@@ -6,7 +6,7 @@ import { getPostSlugs } from "@/lib/writing";
 import { getGameSlugs } from "@/lib/games";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["", "/projects", "/cv", "/writing", "/photos", "/games", "/about"];
+  const staticPaths = ["", "/projects", "/writing", "/photos", "/games", "/about"];
   const dynamicPaths = [
     ...getProjectSlugs().map((s) => `/projects/${s}`),
     ...getPostSlugs().map((s) => `/writing/${s}`),
