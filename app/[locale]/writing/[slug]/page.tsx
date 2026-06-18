@@ -5,7 +5,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import PageHeader from "@/components/PageHeader";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
-import { getPost, getPostSlugs, formatDate } from "@/lib/writing";
+import { getPost, getPostSlugs, getAllPosts, formatDate } from "@/lib/writing";
 import JsonLd from "@/components/JsonLd";
 import { alternates, SITE_URL } from "@/lib/seo";
 
@@ -43,6 +43,7 @@ export default async function PostPage({ params }: Props) {
 
   const { meta, content } = post;
   const { content: body } = await compileMDX({ source: content });
+  const related = getAllPosts(locale).filter((p) => p.slug !== slug).slice(0, 2);
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -80,6 +81,31 @@ export default async function PostPage({ params }: Props) {
             </span>
           ))}
         </div>
+      )}
+
+      {related.length > 0 && (
+        <nav className="mt-14 pt-8 border-t border-line/50">
+          <h2 className="text-xs uppercase tracking-[0.24em] text-muted mb-5">
+            {t.more}
+          </h2>
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {related.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/${locale}/writing/${p.slug}`}
+                  className="group glass-card block h-full p-4"
+                >
+                  <h3 className="font-serif text-lg text-text group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-text-soft leading-relaxed line-clamp-2">
+                    {p.excerpt}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
     </article>
   );

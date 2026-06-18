@@ -4,6 +4,7 @@ import { locales } from "@/i18n/config";
 import { getProjectSlugs } from "@/lib/projects";
 import { getPostSlugs } from "@/lib/writing";
 import { getGameSlugs } from "@/lib/games";
+import { getPhotos } from "@/lib/photos";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = ["", "/projects", "/writing", "/photos", "/games", "/about"];
@@ -13,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getGameSlugs().map((s) => `/games/${s}`),
   ];
   const allPaths = [...staticPaths, ...dynamicPaths];
+
+  // Expose gallery images so they can be indexed by Google Images.
+  const photoImages = getPhotos("en").map((p) => `${SITE_URL}${p.src}`);
 
   return allPaths.flatMap((path) =>
     locales.map((locale) => ({
@@ -26,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ar: `${SITE_URL}/ar${path}`,
         },
       },
+      ...(path === "/photos" ? { images: photoImages } : {}),
     }))
   );
 }

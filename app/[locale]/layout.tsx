@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   },
   description:
     "Harshath Kasim — working at the intersection of HR and IT. Projects, writing, photos, and a few small games.",
+  alternates: {
+    types: { "application/rss+xml": "https://harshathkasim.com/feed.xml" },
+  },
 };
 
 export default async function LocaleLayout({

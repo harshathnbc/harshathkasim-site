@@ -5,7 +5,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import PageHeader from "@/components/PageHeader";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
-import { getProject, getProjectSlugs } from "@/lib/projects";
+import { getProject, getProjectSlugs, getAllProjects } from "@/lib/projects";
 import JsonLd from "@/components/JsonLd";
 import { alternates } from "@/lib/seo";
 
@@ -43,6 +43,7 @@ export default async function ProjectPage({ params }: Props) {
 
   const { meta, content } = project;
   const { content: body } = await compileMDX({ source: content });
+  const related = getAllProjects(locale).filter((p) => p.slug !== slug).slice(0, 2);
 
   const projectLd = {
     "@context": "https://schema.org",
@@ -96,6 +97,31 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <div className="mdx">{body}</div>
+
+      {related.length > 0 && (
+        <nav className="mt-14 pt-8 border-t border-line/50">
+          <h2 className="text-xs uppercase tracking-[0.24em] text-muted mb-5">
+            {t.more}
+          </h2>
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {related.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/${locale}/projects/${p.slug}`}
+                  className="group glass-card block h-full p-4"
+                >
+                  <h3 className="font-serif text-lg text-text group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-text-soft leading-relaxed line-clamp-2">
+                    {p.summary}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </article>
   );
 }

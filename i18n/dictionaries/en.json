@@ -37,7 +37,8 @@
       "statusDevelopment": "In development",
       "visit": "Visit site →",
       "roleLabel": "Role",
-      "back": "← All projects"
+      "back": "← All projects",
+      "more": "More projects"
     },
     "cv": {
       "eyebrow": "Experience",
@@ -50,7 +51,8 @@
       "title": "Writing",
       "intro": "Thoughts on people, technology, and the space where HR and IT meet.",
       "note": "Posts are being written. Soon.",
-      "back": "← All writing"
+      "back": "← All writing",
+      "more": "More writing"
     },
     "photos": {
       "eyebrow": "Gallery",
