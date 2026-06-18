@@ -18,7 +18,7 @@ const csp = [
   "object-src 'none'",
   "frame-src 'none'",
   "frame-ancestors 'none'",
-  "form-action 'self'",
+  "form-action 'self' https://buttondown.email https://buttondown.com",
   "upgrade-insecure-requests",
 ].join("; ");
 

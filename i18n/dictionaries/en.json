@@ -1,4 +1,9 @@
 {
+  "newsletter": {
+    "heading": "Occasional notes by email — HR, IT, and photography.",
+    "placeholder": "you@example.com",
+    "button": "Subscribe"
+  },
   "nav": {
     "skip": "Skip to content",
     "services": "Services",

@@ -71,7 +71,7 @@ export default async function LocaleLayout({
         <main id="main-content" className="flex-1 w-full">
           {children}
         </main>
-        <Footer />
+        <Footer newsletter={dict.newsletter} />
         <Analytics />
         <SpeedInsights />
       </body>
