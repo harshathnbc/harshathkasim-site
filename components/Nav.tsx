@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LangSwitch from "./LangSwitch";
+import MobileMenu from "./MobileMenu";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -28,7 +29,7 @@ export default function Nav({
         >
           Harshath <span className="italic text-accent">Kasim</span>
         </Link>
-        <div className="flex items-center gap-7">
+        <div className="flex items-center gap-5 sm:gap-7">
           <ul className="hidden sm:flex items-center gap-7 text-sm text-text-soft">
             {links.map((l) => (
               <li key={l.href}>
@@ -39,6 +40,7 @@ export default function Nav({
             ))}
           </ul>
           <LangSwitch locale={locale} />
+          <MobileMenu links={links} label={nav.menu} />
         </div>
       </nav>
     </header>
