@@ -25,7 +25,7 @@ export default function MobileMenu({
       </button>
 
       {open && (
-        <div className="absolute inset-x-0 top-16 glass-nav border-t border-line/40 px-6 py-3">
+        <div className="absolute inset-x-0 top-16 bg-bg/97 backdrop-blur-xl border-t border-b border-line/50 px-6 py-3 shadow-2xl shadow-black/50">
           <ul className="flex flex-col">
             {links.map((l) => (
               <li key={l.href}>
