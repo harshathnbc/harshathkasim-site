@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Instrument_Serif, IBM_Plex_Mono, IBM_Plex_Sans_Arabic } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -70,6 +71,7 @@ export default async function LocaleLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
