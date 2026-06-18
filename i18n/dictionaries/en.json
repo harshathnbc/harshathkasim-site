@@ -1,6 +1,7 @@
 {
   "nav": {
     "skip": "Skip to content",
+    "services": "Services",
     "projects": "Projects",
     "cv": "CV",
     "writing": "Writing",
@@ -27,6 +28,43 @@
     }
   },
   "pages": {
+    "services": {
+      "eyebrow": "Work with me",
+      "title": "Services",
+      "intro": "I help organisations bring people, process, and technology together — building the systems that make work run smoothly.",
+      "offerings": [
+        {
+          "title": "Software & ERP Development",
+          "desc": "Custom enterprise systems — HR, payroll, project workflow, and more — built around how your team actually works."
+        },
+        {
+          "title": "HR & IT Consulting",
+          "desc": "Practical advice at the intersection of human resources and information technology: process design, systems selection, and digital transformation."
+        },
+        {
+          "title": "Saudi Local Content Advisory",
+          "desc": "Measure your local content score and get a clear, practical roadmap to improve it — the thinking behind Mahalli Pro."
+        }
+      ],
+      "ctaHeading": "Have a project in mind?",
+      "ctaText": "Let's talk →",
+      "mailSubject": "Project enquiry"
+    },
+    "mahalli": {
+      "eyebrow": "Product",
+      "title": "Mahalli Pro",
+      "tagline": "Know your Saudi local content score — and how to raise it.",
+      "intro": "Mahalli Pro collects your company's data, calculates your local content percentage against the relevant criteria, and turns it into clear, practical recommendations.",
+      "points": [
+        "Accurate scoring from your real procurement and payroll data.",
+        "Actionable recommendations — exactly where and how to improve.",
+        "Built for Saudi businesses, aligned with local content requirements."
+      ],
+      "status": "In development",
+      "ctaHeading": "Want early access?",
+      "ctaText": "Request early access →",
+      "mailSubject": "Mahalli Pro early access"
+    },
     "projects": {
       "eyebrow": "Work",
       "title": "Projects",
@@ -61,7 +99,9 @@
       "note": "The gallery is being curated.",
       "close": "Close",
       "prev": "Previous",
-      "next": "Next"
+      "next": "Next",
+      "licenseText": "Licensing or prints? Get in touch →",
+      "mailSubject": "Photo licensing / print enquiry"
     },
     "games": {
       "eyebrow": "Play",

@@ -40,6 +40,14 @@ export default async function PhotosPage({ params }: Props) {
     <div className="mx-auto max-w-5xl px-6">
       <JsonLd data={galleryLd} />
       <PageHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
+      <div className="-mt-4 mb-10">
+        <a
+          href={`mailto:hello@harshathkasim.com?subject=${encodeURIComponent(t.mailSubject)}`}
+          className="link-underline text-sm text-accent hover:text-text"
+        >
+          {t.licenseText}
+        </a>
+      </div>
       {photos.length === 0 ? (
         <ComingSoon note={t.note} />
       ) : (
