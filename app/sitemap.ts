@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { locales } from "@/i18n/config";
 import { getProjectSlugs } from "@/lib/projects";
-import { getPostSlugs } from "@/lib/writing";
+import { getPostSlugs, getAllPosts } from "@/lib/writing";
 import { getGameSlugs } from "@/lib/games";
 import { getPhotos } from "@/lib/photos";
 
@@ -18,11 +18,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Expose gallery images so they can be indexed by Google Images.
   const photoImages = getPhotos("en").map((p) => `${SITE_URL}${p.src}`);
 
-  return allPaths.flatMap((path) =>
-    locales.map((locale) => ({
+  // Real publication dates, so lastmod is a signal Google can trust.
+  // Anything without a genuine content date omits lastmod entirely —
+  // an inaccurate date is worse than none.
+  const posts = getAllPosts("en");
+  const postDates = new Map(posts.map((p) => [`/writing/${p.slug}`, p.date]));
+  const newestPost = posts[0]?.date;
+
+  function lastModified(path: string): string | undefined {
+    if (postDates.has(path)) return postDates.get(path);
+    if (path === "/writing") return newestPost;
+    return undefined;
+  }
+
+  return allPaths.flatMap((path) => {
+    const modified = lastModified(path);
+    return locales.map((locale) => ({
       url: `${SITE_URL}/${locale}${path}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
+      ...(modified ? { lastModified: modified } : {}),
       priority: path === "" ? 1 : 0.7,
       alternates: {
         languages: {
@@ -31,6 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
       ...(path === "/photos" ? { images: photoImages } : {}),
-    }))
-  );
+    }));
+  });
 }
