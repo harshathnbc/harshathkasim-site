@@ -7,7 +7,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getProject, getProjectSlugs, getAllProjects } from "@/lib/projects";
 import JsonLd from "@/components/JsonLd";
-import { alternates } from "@/lib/seo";
+import ShareButtons from "@/components/ShareButtons";
+import { alternates, SITE_URL } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
 
@@ -32,7 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { locale, slug } = await params;
-  const t = (await getDictionary(locale)).pages.projects;
+  const dict = await getDictionary(locale);
+  const t = dict.pages.projects;
+  const share = dict.share;
 
   let project;
   try {
@@ -97,6 +100,14 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <div className="mdx">{body}</div>
+
+      <div className="mt-10 pt-6 border-t border-line/50">
+        <ShareButtons
+          url={`${SITE_URL}/${locale}/projects/${slug}`}
+          title={meta.title}
+          labels={share}
+        />
+      </div>
 
       {related.length > 0 && (
         <nav className="mt-14 pt-8 border-t border-line/50">

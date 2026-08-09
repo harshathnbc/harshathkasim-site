@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import PromptsGallery from "@/components/PromptsGallery";
 import JsonLd from "@/components/JsonLd";
+import ShareButtons from "@/components/ShareButtons";
 import { getDictionary } from "@/i18n/dictionaries";
 import { type Locale } from "@/i18n/config";
 import { alternates, SITE_URL } from "@/lib/seo";
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PromptsPage({ params }: Props) {
   const { locale } = await params;
-  const t = (await getDictionary(locale)).pages.prompts;
+  const dict = await getDictionary(locale);
+  const t = dict.pages.prompts;
   const prompts = getPrompts(locale);
 
   // HowTo schema — this page is a genuine step-by-step, so it can earn a rich result.
@@ -67,6 +69,14 @@ export default async function PromptsPage({ params }: Props) {
           soon: t.soon,
         }}
       />
+
+      <div className="mt-12 pt-6 border-t border-line/50">
+        <ShareButtons
+          url={`${SITE_URL}/${locale}/prompts`}
+          title={t.title}
+          labels={dict.share}
+        />
+      </div>
     </div>
   );
 }

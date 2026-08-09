@@ -1,9 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useBestScore } from "@/lib/useBestScore";
 
 type Labels = {
   score: string;
+  best: string;
   youWin: string;
   gameOver: string;
   restart: string;
@@ -112,6 +114,12 @@ export default function Game2048({ labels }: { labels: Labels }) {
   const overRef = useRef(over);
   boardRef.current = board;
   overRef.current = over;
+  const { best, submit } = useBestScore("2048", "high");
+
+  // Record the personal best once a game ends.
+  useEffect(() => {
+    if (over && score > 0) submit(score);
+  }, [over, score, submit]);
 
   const start = useCallback(() => {
     let b = spawn(spawn(empty()));
@@ -173,9 +181,16 @@ export default function Game2048({ labels }: { labels: Labels }) {
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <p className="font-mono text-sm text-text-soft h-5" aria-live="polite">
-        {status}
-      </p>
+      <div className="flex items-center gap-5 h-5">
+        <p className="font-mono text-sm text-text-soft" aria-live="polite">
+          {status}
+        </p>
+        {best !== null && (
+          <p className="font-mono text-sm text-muted">
+            {labels.best}: {best}
+          </p>
+        )}
+      </div>
 
       <div
         className="grid grid-cols-4 gap-2 p-2 rounded-lg bg-line/20 touch-none select-none"

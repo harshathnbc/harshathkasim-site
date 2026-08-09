@@ -7,6 +7,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { getPost, getPostSlugs, getAllPosts, formatDate } from "@/lib/writing";
 import JsonLd from "@/components/JsonLd";
+import ShareButtons from "@/components/ShareButtons";
 import { alternates, SITE_URL } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -32,7 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
-  const t = (await getDictionary(locale)).pages.writing;
+  const dict = await getDictionary(locale);
+  const t = dict.pages.writing;
+  const share = dict.share;
 
   let post;
   try {
@@ -70,8 +73,16 @@ export default async function PostPage({ params }: Props) {
 
       <div className="mdx">{body}</div>
 
+      <div className="mt-10 pt-6 border-t border-line/50">
+        <ShareButtons
+          url={`${SITE_URL}/${locale}/writing/${slug}`}
+          title={meta.title}
+          labels={share}
+        />
+      </div>
+
       {meta.tags?.length > 0 && (
-        <div className="mt-12 pt-6 border-t border-line/50 flex flex-wrap gap-1.5">
+        <div className="mt-8 flex flex-wrap gap-1.5">
           {meta.tags.map((tag) => (
             <span
               key={tag}

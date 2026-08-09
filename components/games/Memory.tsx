@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useBestScore } from "@/lib/useBestScore";
 
-type Labels = { moves: string; youWin: string; restart: string };
+type Labels = { moves: string; best: string; youWin: string; restart: string };
 type Card = { id: number; symbol: string };
 
 const SYMBOLS = ["★", "✦", "●", "■", "▲", "◆", "♥", "✚"];
@@ -28,6 +29,12 @@ export default function Memory({ labels }: { labels: Labels }) {
   }, []);
 
   const won = deck.length > 0 && matched.length === deck.length;
+  const { best, submit } = useBestScore("memory", "low");
+
+  // Fewest moves wins, so record the best only on a completed board.
+  useEffect(() => {
+    if (won && moves > 0) submit(moves);
+  }, [won, moves, submit]);
 
   function flip(index: number) {
     if (lock || flipped.includes(index) || matched.includes(index)) return;
@@ -59,9 +66,16 @@ export default function Memory({ labels }: { labels: Labels }) {
 
   return (
     <div className="flex flex-col items-center gap-6">
-      <p className="font-mono text-sm text-text-soft h-5" aria-live="polite">
-        {won ? `${labels.youWin} (${moves} ${labels.moves})` : `${moves} ${labels.moves}`}
-      </p>
+      <div className="flex items-center gap-5 h-5">
+        <p className="font-mono text-sm text-text-soft" aria-live="polite">
+          {won ? `${labels.youWin} (${moves} ${labels.moves})` : `${moves} ${labels.moves}`}
+        </p>
+        {best !== null && (
+          <p className="font-mono text-sm text-muted">
+            {labels.best}: {best} {labels.moves}
+          </p>
+        )}
+      </div>
 
       <div className="grid grid-cols-4 gap-2" dir="ltr">
         {deck.map((card, i) => {

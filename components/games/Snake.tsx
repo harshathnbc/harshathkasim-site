@@ -1,8 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useBestScore } from "@/lib/useBestScore";
 
-type Labels = { score: string; gameOver: string; restart: string; hint: string };
+type Labels = {
+  score: string;
+  best: string;
+  gameOver: string;
+  restart: string;
+  hint: string;
+};
 type P = { x: number; y: number };
 
 const N = 15;
@@ -30,6 +37,12 @@ export default function Snake({ labels }: { labels: Labels }) {
   foodRef.current = food;
   runningRef.current = running;
   overRef.current = over;
+  const { best, submit } = useBestScore("snake", "high");
+
+  // Record the personal best once the snake crashes.
+  useEffect(() => {
+    if (over && score > 0) submit(score);
+  }, [over, score, submit]);
 
   const reset = useCallback(() => {
     const init = [{ x: 7, y: 7 }];
@@ -119,9 +132,16 @@ export default function Snake({ labels }: { labels: Labels }) {
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <p className="font-mono text-sm text-text-soft h-5" aria-live="polite">
-        {status}
-      </p>
+      <div className="flex items-center gap-5 h-5">
+        <p className="font-mono text-sm text-text-soft" aria-live="polite">
+          {status}
+        </p>
+        {best !== null && (
+          <p className="font-mono text-sm text-muted">
+            {labels.best}: {best}
+          </p>
+        )}
+      </div>
 
       <div
         className="grid gap-px bg-line/30 rounded-md p-px touch-none select-none w-full max-w-[330px] aspect-square"

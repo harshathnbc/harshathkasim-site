@@ -1,4 +1,9 @@
 {
+  "share": {
+    "share": "Share",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied"
+  },
   "newsletter": {
     "heading": "Occasional notes by email — HR, IT, and photography.",
     "placeholder": "you@example.com",
@@ -145,11 +150,13 @@
       },
       "memory": {
         "moves": "moves",
+        "best": "Best",
         "youWin": "Solved! 🎉",
         "restart": "Restart"
       },
       "g2048": {
         "score": "Score",
+        "best": "Best",
         "youWin": "You reached 2048! 🎉",
         "gameOver": "Game over",
         "restart": "Restart",
@@ -157,6 +164,7 @@
       },
       "snake": {
         "score": "Score",
+        "best": "Best",
         "gameOver": "Game over",
         "restart": "Restart",
         "hint": "Arrow keys or swipe to play"
