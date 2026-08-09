@@ -4,10 +4,15 @@
 // locked to 'self'. 'unsafe-inline' is required for scripts/styles because the
 // site is statically pre-rendered (no per-request nonce); since no user input
 // is ever reflected into the page, there is no XSS injection vector to exploit.
+// Next's dev server evaluates modules with eval() for hot reloading, which the
+// production policy correctly forbids. Allow it in development only, so local
+// client components hydrate; production keeps the strict policy.
+const isDev = process.env.NODE_ENV === "development";
+
 const csp = [
   "default-src 'self'",
   "base-uri 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",

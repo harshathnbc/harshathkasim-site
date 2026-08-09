@@ -12,6 +12,7 @@ export default function Nav({
   nav: Dictionary["nav"];
 }) {
   const links = [
+    { href: `/${locale}/prompts`, label: nav.prompts },
     { href: `/${locale}/services`, label: nav.services },
     { href: `/${locale}/projects`, label: nav.projects },
     { href: `/${locale}/writing`, label: nav.writing },
@@ -30,7 +31,7 @@ export default function Nav({
           Harshath <span className="italic text-accent">Kasim</span>
         </Link>
         <div className="flex items-center gap-5 sm:gap-7">
-          <ul className="hidden sm:flex items-center gap-7 text-sm text-text-soft">
+          <ul className="hidden lg:flex items-center gap-5 text-sm text-text-soft">
             {links.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="link-underline hover:text-text transition-colors">

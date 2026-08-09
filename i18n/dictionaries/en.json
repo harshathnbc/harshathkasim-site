@@ -7,6 +7,7 @@
   "nav": {
     "skip": "Skip to content",
     "menu": "Menu",
+    "prompts": "Prompts",
     "services": "Services",
     "projects": "Projects",
     "cv": "CV",
@@ -36,6 +37,22 @@
     }
   },
   "pages": {
+    "prompts": {
+      "eyebrow": "AI Photo Prompts",
+      "title": "Turn Your Photo Into Anything",
+      "intro": "Free prompts for AI image tools. Upload a photo of yourself as a reference, paste a prompt, and get a new portrait in that style. Tap any prompt to copy it.",
+      "howToTitle": "How to use these",
+      "howTo": [
+        "Open an AI image tool that accepts a reference photo — Gemini, ChatGPT, Midjourney, or Grok all work.",
+        "Upload a clear, well lit photo of your face as the reference.",
+        "Copy a prompt below and paste it in, then generate.",
+        "Adjust wording to taste — change the clothing, background, or mood to make it yours."
+      ],
+      "all": "All",
+      "copy": "Copy prompt",
+      "copied": "Copied",
+      "soon": "Example image coming soon"
+    },
     "services": {
       "eyebrow": "Work with me",
       "title": "Services",
