@@ -42,6 +42,24 @@
     }
   },
   "pages": {
+    "tools": {
+      "eyebrow": "Free Tool",
+      "title": "Image Optimiser",
+      "intro": "Shrink any photo for the web — resize, compress, and convert to WebP. Everything runs inside your browser, so your image is never uploaded anywhere.",
+      "privacy": "100% private — your photo never leaves your device, and camera and GPS metadata are stripped automatically.",
+      "drop": "Drop an image here",
+      "choose": "Choose an image",
+      "maxWidth": "Max width",
+      "quality": "Quality",
+      "format": "Format",
+      "original": "Original",
+      "optimized": "Optimised",
+      "saved": "Saved",
+      "download": "Download",
+      "reset": "Start over",
+      "working": "Optimising…",
+      "error": "That file could not be read. Please try a different image."
+    },
     "prompts": {
       "eyebrow": "AI Photo Prompts",
       "title": "Turn Your Photo Into Anything",

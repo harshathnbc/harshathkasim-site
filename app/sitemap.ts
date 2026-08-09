@@ -7,7 +7,18 @@ import { getGameSlugs } from "@/lib/games";
 import { getPhotos } from "@/lib/photos";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPaths = ["", "/prompts", "/services", "/mahalli-pro", "/projects", "/writing", "/photos", "/games", "/about"];
+  const staticPaths = [
+    "",
+    "/prompts",
+    "/tools/image-optimiser",
+    "/services",
+    "/mahalli-pro",
+    "/projects",
+    "/writing",
+    "/photos",
+    "/games",
+    "/about",
+  ];
   const dynamicPaths = [
     ...getProjectSlugs().map((s) => `/projects/${s}`),
     ...getPostSlugs().map((s) => `/writing/${s}`),
