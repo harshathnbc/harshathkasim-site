@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ThemeScript } from "@/components/ThemeToggle";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, localeDir, isLocale, type Locale } from "@/i18n/config";
 
@@ -62,7 +63,16 @@ export default async function LocaleLayout({
   const fontVars = `${instrumentSerif.variable} ${ibmPlexMono.variable} ${ibmPlexArabic.variable}`;
 
   return (
-    <html lang={locale} dir={localeDir[locale as Locale]} className={fontVars}>
+    <html
+      lang={locale}
+      dir={localeDir[locale as Locale]}
+      className={fontVars}
+      data-theme="dark"
+      suppressHydrationWarning
+    >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-screen flex flex-col">
         <a href="#main-content" className="skip-link">
           {dict.nav.skip}

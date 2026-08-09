@@ -15,6 +15,43 @@
   --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
 }
 
+/* ── Light theme ─────────────────────────────────────────────────
+   Overrides the dark token values above. Higher specificity than the
+   :root rule Tailwind generates from @theme, so these values win.
+   Glass surfaces flip from white overlays to dark ones, since a white
+   sheen is invisible on a light background. */
+:root[data-theme="light"] {
+  --color-bg: #faf9f5;
+  --color-bg-glow: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #1b1d23;
+  --color-text-soft: #3f434c;
+  --color-muted: #6a6e78;
+  --color-accent: #8a6a33;
+  --color-line: rgba(27, 29, 35, 0.16);
+
+  --glass-bg-from: rgba(255, 255, 255, 0.85);
+  --glass-bg-to: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(27, 29, 35, 0.12);
+  --glass-sheen: rgba(255, 255, 255, 0.9);
+  --glass-inset: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(27, 29, 35, 0.14);
+  --nav-bg-from: rgba(250, 249, 245, 0.85);
+  --nav-bg-to: rgba(250, 249, 245, 0.65);
+}
+
+/* Dark theme is the default; these feed the glass system below. */
+:root {
+  --glass-bg-from: rgba(255, 255, 255, 0.13);
+  --glass-bg-to: rgba(255, 255, 255, 0.035);
+  --glass-border: rgba(236, 234, 211, 0.16);
+  --glass-sheen: rgba(255, 255, 255, 0.22);
+  --glass-inset: rgba(255, 255, 255, 0.18);
+  --glass-shadow: rgba(0, 0, 0, 0.75);
+  --nav-bg-from: rgba(28, 31, 40, 0.6);
+  --nav-bg-to: rgba(20, 22, 28, 0.42);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -115,6 +152,13 @@ body::before {
   animation: aurora 22s ease-in-out infinite alternate;
 }
 
+/* The aurora is tuned for a dark canvas; soften it on light so the
+   page stays clean rather than muddy. */
+:root[data-theme="light"] body::before {
+  opacity: 0.5;
+  filter: blur(50px);
+}
+
 @keyframes aurora {
   from { transform: translate3d(-2%, -1%, 0) scale(1); }
   to   { transform: translate3d(3%, 2%, 0) scale(1.1); }
@@ -126,17 +170,16 @@ body::before {
   isolation: isolate;
   background: linear-gradient(
     145deg,
-    rgba(255, 255, 255, 0.13),
-    rgba(255, 255, 255, 0.035) 55%
+    var(--glass-bg-from),
+    var(--glass-bg-to) 55%
   );
   backdrop-filter: blur(16px) saturate(135%);
   -webkit-backdrop-filter: blur(16px) saturate(135%);
-  border: 1px solid rgba(236, 234, 211, 0.16);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 0 24px rgba(255, 255, 255, 0.02),
-    0 14px 40px -16px rgba(0, 0, 0, 0.75);
+    inset 0 1px 0 var(--glass-inset),
+    0 14px 40px -16px var(--glass-shadow);
   transition:
     transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
     border-color 0.45s ease,
@@ -151,8 +194,8 @@ body::before {
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.04) 26%,
+    var(--glass-sheen) 0%,
+    color-mix(in srgb, var(--glass-sheen) 20%, transparent) 26%,
     transparent 52%
   );
   opacity: 0.9;
@@ -161,27 +204,22 @@ body::before {
 }
 .glass-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(200, 165, 107, 0.6);
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.17),
-    rgba(255, 255, 255, 0.05) 55%
-  );
+  border-color: color-mix(in srgb, var(--color-accent) 60%, transparent);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.24),
-    0 22px 54px -16px rgba(0, 0, 0, 0.8),
-    0 0 42px -10px rgba(200, 165, 107, 0.4);
+    inset 0 1px 0 var(--glass-inset),
+    0 22px 54px -16px var(--glass-shadow),
+    0 0 42px -10px color-mix(in srgb, var(--color-accent) 40%, transparent);
 }
 
 /* Frosted nav bar */
 .glass-nav {
-  background: linear-gradient(180deg, rgba(28, 31, 40, 0.6), rgba(20, 22, 28, 0.42));
+  background: linear-gradient(180deg, var(--nav-bg-from), var(--nav-bg-to));
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border-bottom: 1px solid rgba(236, 234, 211, 0.1);
+  border-bottom: 1px solid var(--glass-border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 6px 24px -16px rgba(0, 0, 0, 0.8);
+    inset 0 1px 0 var(--glass-inset),
+    0 6px 24px -16px var(--glass-shadow);
 }
 
 /* Glossy glass button */
@@ -189,16 +227,16 @@ body::before {
   position: relative;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.075),
-    rgba(255, 255, 255, 0.02)
+    var(--glass-bg-from),
+    var(--glass-bg-to)
   );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(236, 234, 211, 0.13);
+  border: 1px solid var(--glass-border);
   border-radius: 11px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    0 6px 18px -10px rgba(0, 0, 0, 0.6);
+    inset 0 1px 0 var(--glass-inset),
+    0 6px 18px -10px var(--glass-shadow);
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LangSwitch from "./LangSwitch";
 import MobileMenu from "./MobileMenu";
+import ThemeToggle from "./ThemeToggle";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -41,6 +42,7 @@ export default function Nav({
             ))}
           </ul>
           <LangSwitch locale={locale} />
+          <ThemeToggle label={nav.theme} />
           <MobileMenu links={links} label={nav.menu} />
         </div>
       </nav>
