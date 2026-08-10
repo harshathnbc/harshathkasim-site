@@ -87,6 +87,13 @@ function iso(d: Date) {
   return d.toISOString().slice(0, 10);
 }
 
+const pad = (n: number) => String(n).padStart(2, "0");
+
+/** Day/month/year, the form used on most documents. */
+function numeric(day: number, month: number, year: number) {
+  return `${pad(day)}/${pad(month)}/${year}`;
+}
+
 export default function HijriConverter({
   labels,
   locale,
@@ -114,6 +121,7 @@ export default function HijriConverter({
     if (!hij) return null;
     return {
       text: `${hij.day} ${HIJRI_MONTHS[hij.month - 1]} ${hij.year} AH`,
+      numeric: numeric(hij.day, hij.month, hij.year),
       localized: new Intl.DateTimeFormat(`${locale}-u-ca-${HIJRI_CAL}`, {
         dateStyle: "full",
         timeZone: "UTC",
@@ -141,6 +149,7 @@ export default function HijriConverter({
     if (!d) return null;
     return {
       text: iso(d),
+      numeric: numeric(d.getUTCDate(), d.getUTCMonth() + 1, d.getUTCFullYear()),
       localized: new Intl.DateTimeFormat(locale, {
         dateStyle: "full",
         timeZone: "UTC",
@@ -242,6 +251,9 @@ export default function HijriConverter({
           <>
             <p className="font-serif text-3xl text-text" dir="ltr">
               {result.text}
+            </p>
+            <p className="mt-2 font-mono text-xl text-accent" dir="ltr">
+              {result.numeric}
             </p>
             <p className="mt-2 text-sm text-text-soft">{result.localized}</p>
           </>
