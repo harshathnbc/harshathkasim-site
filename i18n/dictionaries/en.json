@@ -72,6 +72,10 @@
         "Copy a prompt below and paste it in, then generate.",
         "Adjust wording to taste — change the clothing, background, or mood to make it yours."
       ],
+      "referenceTitle": "What a good reference photo looks like",
+      "referenceNote": "Clear face, even lighting, facing the camera. The better your reference, the better every style below turns out.",
+      "referenceAltMan": "Example reference photo of a man, evenly lit and facing the camera",
+      "referenceAltWoman": "Example reference photo of a woman, evenly lit and facing the camera",
       "all": "All",
       "copy": "Copy prompt",
       "copied": "Copied",

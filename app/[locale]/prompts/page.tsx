@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import PromptsGallery from "@/components/PromptsGallery";
 import JsonLd from "@/components/JsonLd";
@@ -58,6 +59,32 @@ export default async function PromptsPage({ params }: Props) {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="text-xs uppercase tracking-[0.24em] text-muted mb-2">
+          {t.referenceTitle}
+        </h2>
+        <p className="text-sm text-text-soft leading-relaxed mb-4 max-w-2xl">
+          {t.referenceNote}
+        </p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {[
+            { src: "/prompts/base-man.webp", alt: t.referenceAltMan },
+            { src: "/prompts/base-woman.webp", alt: t.referenceAltWoman },
+          ].map((img) => (
+            <div key={img.src} className="overflow-hidden rounded-xl glass-frame">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={1400}
+                height={764}
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="w-full h-auto block"
+              />
+            </div>
+          ))}
+        </div>
       </section>
 
       <PromptsGallery
