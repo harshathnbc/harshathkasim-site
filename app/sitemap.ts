@@ -6,12 +6,14 @@ import { getPostSlugs, getAllPosts } from "@/lib/writing";
 import { getGameSlugs } from "@/lib/games";
 import { getPhotos } from "@/lib/photos";
 import { getPromptImages } from "@/lib/prompts";
+import { toolSlugs } from "@/lib/toolsList";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
     "/prompts",
-    "/tools/image-optimiser",
+    "/tools",
+    ...toolSlugs().map((s) => `/tools/${s}`),
     "/services",
     "/mahalli-pro",
     "/projects",
