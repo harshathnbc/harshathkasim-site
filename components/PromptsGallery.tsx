@@ -82,16 +82,20 @@ export default function PromptsGallery({
       <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((p) => (
           <li key={p.slug} className="glass-card flex h-full flex-col p-4">
-            {p.image ? (
-              <div className="overflow-hidden rounded-lg mb-3">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  width={p.width ?? 1024}
-                  height={p.height ?? 1024}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="w-full h-auto block"
-                />
+            {p.images ? (
+              <div className="mb-3 grid grid-cols-2 gap-1.5">
+                {[p.images.man, p.images.woman].map((src) => (
+                  <div key={src} className="overflow-hidden rounded-lg">
+                    <Image
+                      src={src}
+                      alt={p.title}
+                      width={p.width ?? 900}
+                      height={p.height ?? 491}
+                      sizes="(min-width: 1024px) 17vw, (min-width: 640px) 25vw, 50vw"
+                      className="w-full h-auto block"
+                    />
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="mb-3 aspect-square rounded-lg border border-dashed border-line/50 flex items-center justify-center">

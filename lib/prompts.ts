@@ -1,14 +1,16 @@
 import data from "@/content/prompts.json";
 import type { Locale } from "@/i18n/config";
 
+type PromptImages = { man: string; woman: string };
+
 type RawPrompt = {
   slug: string;
   category: string;
   title: Record<Locale, string>;
   note: Record<Locale, string>;
   prompt: string;
-  /** Optional example image in /public/prompts. Omit until one exists. */
-  image?: string;
+  /** Example results in /public/prompts, one per reference subject. */
+  images?: PromptImages;
   width?: number;
   height?: number;
 };
@@ -19,7 +21,7 @@ export type Prompt = {
   title: string;
   note: string;
   prompt: string;
-  image?: string;
+  images?: PromptImages;
   width?: number;
   height?: number;
 };
@@ -31,12 +33,14 @@ export function getPrompts(locale: Locale): Prompt[] {
     title: p.title[locale],
     note: p.note[locale],
     prompt: p.prompt,
-    image: p.image,
+    images: p.images,
     width: p.width,
     height: p.height,
   }));
 }
 
 export function getPromptImages(): string[] {
-  return (data as RawPrompt[]).flatMap((p) => (p.image ? [p.image] : []));
+  return (data as RawPrompt[]).flatMap((p) =>
+    p.images ? [p.images.man, p.images.woman] : []
+  );
 }

@@ -5,6 +5,7 @@ import { getProjectSlugs } from "@/lib/projects";
 import { getPostSlugs, getAllPosts } from "@/lib/writing";
 import { getGameSlugs } from "@/lib/games";
 import { getPhotos } from "@/lib/photos";
+import { getPromptImages } from "@/lib/prompts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
@@ -26,8 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const allPaths = [...staticPaths, ...dynamicPaths];
 
-  // Expose gallery images so they can be indexed by Google Images.
+  // Expose gallery and prompt-example images so they can be indexed by
+  // Google Images.
   const photoImages = getPhotos("en").map((p) => `${SITE_URL}${p.src}`);
+  const promptImages = getPromptImages().map((src) => `${SITE_URL}${src}`);
 
   // Real publication dates, so lastmod is a signal Google can trust.
   // Anything without a genuine content date omits lastmod entirely —
@@ -55,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
       ...(path === "/photos" ? { images: photoImages } : {}),
+      ...(path === "/prompts" ? { images: promptImages } : {}),
     }));
   });
 }
