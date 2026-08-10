@@ -125,6 +125,27 @@
       "today": "Today",
       "invalid": "Please enter a valid date."
     },
+    "toolPdfCompress": {
+      "eyebrow": "Free Tool",
+      "title": "PDF Compressor",
+      "intro": "Shrink a large PDF so it fits an email or upload limit. Works entirely in your browser — the file is never sent anywhere.",
+      "warning": "Pages are re-rendered as images, so text will no longer be selectable or searchable. Best for scanned documents, brochures and image-heavy files.",
+      "choose": "Choose a PDF",
+      "dpi": "Resolution",
+      "quality": "Quality",
+      "grayscale": "Convert to grayscale",
+      "compress": "Compress PDF",
+      "working": "Compressing…",
+      "page": "page",
+      "original": "Original",
+      "compressed": "Compressed",
+      "saved": "Saved",
+      "larger": "This PDF is already well compressed — try a lower resolution or quality.",
+      "download": "Download PDF",
+      "reset": "Start over",
+      "error": "That file could not be read. Please try a different PDF.",
+      "encrypted": "This PDF is password protected and cannot be opened."
+    },
     "toolPdf": {
       "eyebrow": "Free Tool",
       "title": "PDF Split & Merge",

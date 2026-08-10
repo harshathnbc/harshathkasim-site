@@ -10,7 +10,8 @@ export type ToolEntry = {
     | "toolPassword"
     | "toolCounter"
     | "toolHijri"
-    | "toolPdf";
+    | "toolPdf"
+    | "toolPdfCompress";
   icon: string;
   category: "Image" | "PDF" | "Text" | "Utility";
 };
@@ -19,6 +20,7 @@ export type ToolEntry = {
 export const TOOLS: ToolEntry[] = [
   { slug: "image-optimiser", dictKey: "tools", icon: "▣", category: "Image" },
   { slug: "image-converter", dictKey: "toolConvert", icon: "⇄", category: "Image" },
+  { slug: "pdf-compressor", dictKey: "toolPdfCompress", icon: "⇩", category: "PDF" },
   { slug: "pdf-tools", dictKey: "toolPdf", icon: "▤", category: "PDF" },
   { slug: "qr-generator", dictKey: "toolQr", icon: "▦", category: "Utility" },
   { slug: "password-generator", dictKey: "toolPassword", icon: "✳", category: "Utility" },
