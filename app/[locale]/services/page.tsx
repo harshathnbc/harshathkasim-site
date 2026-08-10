@@ -21,7 +21,7 @@ export default async function ServicesPage({ params }: Props) {
     <div className="mx-auto max-w-5xl px-6">
       <PageHeader eyebrow={t.eyebrow} title={t.title} intro={t.intro} />
 
-      <ul className="grid sm:grid-cols-3 gap-4">
+      <ul className="grid sm:grid-cols-2 gap-4">
         {t.offerings.map((o, i) => (
           <li key={i} className="glass-card flex h-full flex-col p-5">
             <h2 className="font-serif text-xl text-text">{o.title}</h2>
