@@ -13,8 +13,6 @@ export default function Nav({
   nav: Dictionary["nav"];
 }) {
   const links = [
-    { href: `/${locale}/tools`, label: nav.toolsNav },
-    { href: `/${locale}/prompts`, label: nav.prompts },
     { href: `/${locale}/services`, label: nav.services },
     { href: `/${locale}/projects`, label: nav.projects },
     { href: `/${locale}/writing`, label: nav.writing },

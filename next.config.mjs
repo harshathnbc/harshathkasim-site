@@ -54,6 +54,22 @@ const nextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // The tools and prompts moved to their own site. Send any existing link
+  // to the equivalent page there rather than dropping visitors on a 404.
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|ar)/tools/:path*",
+        destination: "https://ordiveo.com/:locale/tools/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:locale(en|ar)/prompts",
+        destination: "https://ordiveo.com/:locale/prompts",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
